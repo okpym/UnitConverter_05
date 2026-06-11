@@ -2,7 +2,7 @@
 
 ## 도메인 · 컨텍스트
 
-- 작업 전 읽을 것: `README.md`, `Report/Step3_워크북.md`, `Report/Step1_MomTest_*.md`, Refactor 시 `Report/Step6_Refactor_보고서.md`.
+- 작업 전 읽을 것: `README.md`, `docs/PRD.md`, `Report/Step3_워크북.md`, `Report/Step1_MomTest_*.md`, Refactor 시 `Report/Step6_Refactor_보고서.md`.
 - Test ID 출처: `tests/manifest.json`.
 - README vs Report 충돌 시 **Step3 워크북** 우선.
 
@@ -37,7 +37,9 @@
 ## Cursor Skill · Command
 
 - **전체 TDD**: Skill `@unit-converter-tdd`.
-- **RED만**: Command `/tdd-red`.
+- **RED 설계 (Ask)**: Command `/red-test-plan` — C2C·테스트 플랜만, FR SSOT `docs/PRD.md`.
+- **RED 스켈레톤 (Ask)**: Command `/red-skeleton` — `pytest.fail`만, `tests/`만.
+- **RED 본문**: Command `/tdd-red` — assert FAIL.
 - **Refactor 탐지**: Command `/refactor-smell` — 스멜 표만, 수정 금지.
 - **Refactor 실행**: Command `/refactor-safe` — 스멜 1개·Change Budget, golden matched.
 

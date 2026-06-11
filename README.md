@@ -14,6 +14,7 @@
 | Step1 Mom Test | ✅ | `Report/Step1_MomTest_*.md` |
 | Step3 워크북 · TDD 인프라 | ✅ | `Report/Step3_워크북.md`, `tests/`, `.cursorrules` |
 | P0 RED→GREEN | ✅ | `Report/Step4_TDD_RED_보고서.md` |
+| ARRR RED 설계 (Ask) | ✅ | `/red-test-plan`, `/red-skeleton`, [`docs/PRD.md`](./docs/PRD.md) |
 | Refactor Smell · Safe | ✅ | `Report/Step6_Refactor_보고서.md`, `/refactor-smell`, `/refactor-safe` |
 | 추가 요구사항 | ⬜ | 설정 외부화 · 동적 등록 · 출력 포맷 |
 
@@ -69,12 +70,15 @@ UnitConverter_05/
 │   ├── golden/               # *.approved.txt
 │   ├── conftest.py
 │   └── test_converter.py     # P0 + golden
+├── docs/PRD.md               # FR SSOT
 ├── Report/                   # Mom Test · Step3~6 보고서
 ├── Prompt/                   # 인터뷰·평가 프롬프트
 ├── .cursorrules              # Rule (TDD · pytest 게이트)
 └── .cursor/
     ├── commands/
-    │   ├── tdd-red.md        # RED Command
+    │   ├── red-test-plan.md  # C2C 설계표 · 테스트 플랜 (Ask)
+    │   ├── red-skeleton.md   # pytest.fail 스켈레톤 (Ask)
+    │   ├── tdd-red.md        # RED assert 본문
     │   ├── refactor-smell.md # 스멜 탐지 (수정 금지)
     │   └── refactor-safe.md  # Safe Refactor (스멜 1개)
     └── skills/unit-converter-tdd/SKILL.md
@@ -91,7 +95,7 @@ UnitConverter_05/
 | CONV-02 | `feet:10` | meter 기준 역변환 |
 | CONV-03 | `meter:2.5` | feet ≈ 8.2 (README 예시) |
 
-출처: [`tests/manifest.json`](./tests/manifest.json)
+FR SSOT: [`docs/PRD.md`](./docs/PRD.md) · Given/Then: [`tests/manifest.json`](./tests/manifest.json)
 
 ### 기본 요구사항
 1. 사용자 입력 예시:
@@ -137,12 +141,17 @@ UnitConverter_05/
 | 계층 | 경로 | 용도 |
 |------|------|------|
 | Rule | `.cursorrules` | TDD Phase, RED 없는 GREEN 금지 |
-| Command | `/tdd-red` | 실패 테스트만 작성 |
+| SSOT | `docs/PRD.md` | FR-VAL/CONV-* · P0 범위 |
+| Command | `/red-test-plan` | C2C 설계표 · 테스트 플랜 (Ask) |
+| Command | `/red-skeleton` | `pytest.fail` 스켈레톤 (Ask) |
+| Command | `/tdd-red` | RED assert 본문 작성 |
 | Command | `/refactor-smell` | 스멜 탐지 — 수정·commit 금지 |
 | Command | `/refactor-safe` | 스멜 1개 Safe Refactor · golden matched |
 | Skill | `@unit-converter-tdd` | RED → GREEN → REFACTOR 절차 |
 | Test Loop | `pytest` | Phase마다 실행·보고 |
 | Refactor 기록 | `Report/Step6_Refactor_보고서.md` | 스멜 표 · safe 실행 이력 |
+
+**ARRR RED:** `/red-test-plan` → `/red-skeleton` → `/tdd-red` → GREEN
 
 다음 권장: `/refactor-smell` — 남은 스멜 확인 후 `/refactor-safe` 1개.
 
@@ -172,6 +181,7 @@ UnitConverter_05/
 
 | 문서 | 설명 |
 |------|------|
+| [`docs/PRD.md`](./docs/PRD.md) | FR SSOT · FR-VAL/CONV-* · 추적 매트릭스 |
 | [`Report/Step1_MomTest_인터뷰_보고서.md`](./Report/Step1_MomTest_인터뷰_보고서.md) | Mom Test Q&A · inch↔cm 시나리오 |
 | [`Report/Step1_MomTest_평가_보고서.md`](./Report/Step1_MomTest_평가_보고서.md) | Mom Test 중간 평가 |
 | [`Report/Step3_워크북.md`](./Report/Step3_워크북.md) | R-G-I-O · 성공 기준 · 8계층 |
