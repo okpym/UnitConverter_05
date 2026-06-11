@@ -26,3 +26,4 @@ def pytest_configure(config):
     config.addinivalue_line("markers", "p1: 추가 요구 — 세션 3 범위 밖")
     config.addinivalue_line("markers", "conv: 변환 시나리오 (CONV-*)")
     config.addinivalue_line("markers", "val: 입력 검증 (VAL-*)")
+    config.addinivalue_line("markers", "golden: Golden Master approval (VAL-*)")

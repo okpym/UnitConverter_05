@@ -1,3 +1,6 @@
+from entity.constants import METER_TO_FEET, METER_TO_YARD
+
+
 def main():
     input_str = input("Insert value for converting (ex: meter:2.5): ")
 
@@ -24,16 +27,16 @@ def main():
     if unit == "meter":
         meter_value = value
     elif unit == "feet":
-        meter_value = value / 3.28084
+        meter_value = value / METER_TO_FEET
     elif unit == "yard":
-        meter_value = value / 1.09361
+        meter_value = value / METER_TO_YARD
     else:
         print(f"Unknown unit: {unit}")
         return
 
     in_meters = meter_value
-    in_feet = meter_value * 3.28084
-    in_yards = meter_value * 1.09361
+    in_feet = meter_value * METER_TO_FEET
+    in_yards = meter_value * METER_TO_YARD
 
     print(f"{value} {unit} = {in_meters} meter")
     print(f"{value} {unit} = {in_feet} feet")
