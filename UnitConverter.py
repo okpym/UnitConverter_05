@@ -7,10 +7,18 @@ def main():
 
     unit, value_str = input_str.split(':', 1)
 
+    if not unit or not value_str:
+        print("Invalid format. Use unit:value (ex: meter:2.5)")
+        return
+
     try:
         value = float(value_str)
     except ValueError:
         print(f"Invalid number: {value_str}")
+        return
+
+    if value < 0:
+        print(f"Negative value: {value_str}")
         return
 
     if unit == "meter":
