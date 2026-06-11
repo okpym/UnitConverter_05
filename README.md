@@ -13,6 +13,7 @@
 |------|------|--------|
 | Step1 Mom Test | ✅ | `Report/Step1_MomTest_*.md` |
 | Step3 워크북 · TDD 인프라 | ✅ | `Report/Step3_워크북.md`, `tests/`, `.cursorrules` |
+| PRD (FR SSOT) | ✅ | [`docs/PRD.md`](./docs/PRD.md) |
 | 기본·품질 요구 구현 | ⬜ | `UnitConverter.py` 프로토타입 (37줄) |
 | TC 본문 (RED/GREEN) | ⬜ | skeleton 6건 skip |
 | 추가 요구사항 | ⬜ | 설정 외부화 · 동적 등록 · 출력 포맷 |
@@ -66,11 +67,15 @@ UnitConverter_05/
 │   ├── manifest.json         # Test ID (CONV-*, VAL-*)
 │   ├── conftest.py
 │   └── test_converter.py     # RED skeleton
+├── docs/
+│   └── PRD.md                # FR SSOT (FR-VAL/CONV-* ↔ Test ID)
 ├── Report/                   # Mom Test · Step3 워크북
 ├── Prompt/                   # 인터뷰·평가 프롬프트
 ├── .cursorrules              # Rule (TDD · pytest 게이트)
 └── .cursor/
-    ├── commands/tdd-red.md   # RED Command
+    ├── commands/
+    │   ├── tdd-red.md        # RED Command
+    │   └── red-test-plan.md  # C2C 설계표 · 테스트 플랜 (Ask)
     └── skills/unit-converter-tdd/SKILL.md
 ```
 
@@ -85,7 +90,7 @@ UnitConverter_05/
 | CONV-02 | `feet:10` | meter 기준 역변환 |
 | CONV-03 | `meter:2.5` | feet ≈ 8.2 (README 예시) |
 
-출처: [`tests/manifest.json`](./tests/manifest.json)
+FR SSOT: [`docs/PRD.md`](./docs/PRD.md) · Given/Then: [`tests/manifest.json`](./tests/manifest.json)
 
 ### 기본 요구사항
 1. 사용자 입력 예시:
@@ -131,7 +136,9 @@ UnitConverter_05/
 | 계층 | 경로 | 용도 |
 |------|------|------|
 | Rule | `.cursorrules` | TDD Phase, RED 없는 GREEN 금지 |
+| SSOT | `docs/PRD.md` | FR-VAL/CONV-* · P0 범위 |
 | Command | `/tdd-red` | 실패 테스트만 작성 |
+| Command | `/red-test-plan` | C2C 설계표 · 테스트 플랜 (Ask) |
 | Skill | `@unit-converter-tdd` | RED → GREEN → REFACTOR 절차 |
 | Test Loop | `pytest` | Phase마다 실행·보고 |
 
@@ -163,6 +170,7 @@ UnitConverter_05/
 
 | 문서 | 설명 |
 |------|------|
+| [`docs/PRD.md`](./docs/PRD.md) | FR SSOT · P0 FR-VAL/CONV-* · 추적 매트릭스 |
 | [`Report/Step1_MomTest_인터뷰_보고서.md`](./Report/Step1_MomTest_인터뷰_보고서.md) | Mom Test Q&A · inch↔cm 시나리오 |
 | [`Report/Step1_MomTest_평가_보고서.md`](./Report/Step1_MomTest_평가_보고서.md) | Mom Test 중간 평가 |
 | [`Report/Step3_워크북.md`](./Report/Step3_워크북.md) | R-G-I-O · 성공 기준 · 8계층 |
