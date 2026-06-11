@@ -1,0 +1,16 @@
+[project]
+name = "unit-converter-05"
+version = "0.1.0"
+description = "Unit Converter — Session 3 Test Loop"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --strict-markers"
+markers = [
+    "p0: README P0 priority",
+    "p1: deferred extensions",
+    "conv: conversion scenarios",
+    "val: input validation",
+]

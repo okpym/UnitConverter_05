@@ -1,0 +1,50 @@
+{
+  "tests": [
+    {
+      "id": "VAL-01",
+      "priority": "P0",
+      "given": "meter:-1",
+      "then": "음수 입력 거부 (에러 메시지 또는 non-zero exit)",
+      "mom_test": "feet:-3 캡처만 — main 미연결"
+    },
+    {
+      "id": "VAL-02",
+      "priority": "P0",
+      "given": "meter (콜론 없음) 또는 abc",
+      "then": "Invalid format 안내",
+      "mom_test": "입력 형식 검증 README 46행"
+    },
+    {
+      "id": "VAL-03",
+      "priority": "P0",
+      "given": "metre:2.5",
+      "then": "Unknown unit 안내",
+      "mom_test": "오타 단위 metre 시나리오"
+    },
+    {
+      "id": "CONV-01",
+      "priority": "P0",
+      "given": "meter:2.5",
+      "then": "meter, feet, yard 세 줄 출력",
+      "mom_test": "스타터 실행 확인 행동"
+    },
+    {
+      "id": "CONV-02",
+      "priority": "P0",
+      "given": "feet:10",
+      "then": "meter 기준 역변환 후 타 단위 출력",
+      "mom_test": "계산기로 2.5×3.28084 대조 행동"
+    },
+    {
+      "id": "CONV-03",
+      "priority": "P0",
+      "given": "meter:2.5",
+      "then": "feet ≈ 8.2 (README 예시, ±0.1)",
+      "mom_test": "yard:1 vs README 2.7 반올림 불안"
+    }
+  ],
+  "deferred": [
+    "OCP — 단위 추가 시 기존 코드 최소 변경",
+    "EXT — units.json, cubit 등록, JSON/CSV 출력"
+  ]
+}

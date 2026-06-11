@@ -1,0 +1,50 @@
+# Unit Converter (UnitConverter_05) — Cursor Rules
+
+## 도메인 · 컨텍스트
+
+- 작업 전 읽을 것: `README.md`, `Report/Step3_워크북.md`, `Report/Step1_MomTest_*.md`.
+- Test ID 출처: `tests/manifest.json`.
+- README vs Report 충돌 시 **Step3 워크북** 우선.
+
+## 용어
+
+| 용어 | 값 |
+|------|-----|
+| **TDD Phase** | `red` \| `green` \| `refactor` |
+| **Test ID** | `CONV-*`, `VAL-*` (`manifest.json`) |
+
+선언 예: `TDD Phase: red | Test ID: VAL-01 — RED`
+
+## 파일 배치
+
+- **프로덕션**: 루트 `UnitConverter.py` (및 이후 분리 모듈).
+- **테스트**: `tests/` 만.
+- **문서**: `Report/`, `Prompt/`.
+- **AI 설정**: `.cursorrules`, `.cursor/commands/`, `.cursor/skills/`.
+
+## TDD (RED → GREEN → REFACTOR)
+
+- 허용 사이클: **RED → GREEN → REFACTOR**. 한 번에 **하나의 Test ID**.
+- **금지**: RED 없이 GREEN, assert 완화·삭제, `pytest.skip()`·xfail로 통과 우회.
+- skeleton `skip` 제거는 Given/Then 구현과 **동시**에만.
+
+## pytest · Test Loop
+
+- **각 TDD Phase 후** pytest 실행·결과 보고 (passed / failed / skipped).
+- P0: `pytest -m p0 -v`.
+- Phase 완료 시: 대상 Test ID **실패 0** (해당 범위).
+
+## Cursor Skill · Command
+
+- **전체 TDD**: Skill `@unit-converter-tdd`.
+- **RED만**: Command `/tdd-red`.
+
+## Mom Test에서 온 우선순위
+
+- P0: 입력 검증(VAL-01~03) + 기본 변환(CONV-01~03) — **Test ID 단위**로만 진행.
+- 이번 세션 범위 밖: cubit 등록, 설정 외부화, JSON/CSV 출력 (Step3 워크북 §4).
+
+## AI · git
+
+- 사용자-facing·커밋 메시지: **한국어**.
+- `git commit` / `push`: **사용자 명시 요청 시만**.
