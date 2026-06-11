@@ -2,7 +2,7 @@
 
 ## 도메인 · 컨텍스트
 
-- 작업 전 읽을 것: `README.md`, `Report/Step3_워크북.md`, `Report/Step1_MomTest_*.md`.
+- 작업 전 읽을 것: `README.md`, `Report/Step3_워크북.md`, `Report/Step1_MomTest_*.md`, Refactor 시 `Report/Step6_Refactor_보고서.md`.
 - Test ID 출처: `tests/manifest.json`.
 - README vs Report 충돌 시 **Step3 워크북** 우선.
 
@@ -38,6 +38,8 @@
 
 - **전체 TDD**: Skill `@unit-converter-tdd`.
 - **RED만**: Command `/tdd-red`.
+- **Refactor 탐지**: Command `/refactor-smell` — 스멜 표만, 수정 금지.
+- **Refactor 실행**: Command `/refactor-safe` — 스멜 1개·Change Budget, golden matched.
 
 ## Mom Test에서 온 우선순위
 
